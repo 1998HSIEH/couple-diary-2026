@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 情侶進步日記</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+</head>
+<body>
+
+    <nav id="navbar" class="hidden">
+        <button onclick="goHome()">🏠 回首頁</button>
+        <span id="page-title"></span>
+    </nav>
+
+    <div id="home-page" class="page active">
+        <div class="grid-container">
+            <div class="grid-item morandi-pink" onclick="navigateTo('xin-menu')">
+                <img src="icon-girl.png" alt="Girl" class="icon">
+                <span>欣欣日記</span>
+            </div>
+            <div class="grid-item morandi-blue" onclick="navigateTo('new-menu')">
+                <img src="icon-boy.png" alt="Boy" class="icon">
+                <span>新新日記</span>
+            </div>
+            <div class="grid-item bg-gold" onclick="navigateTo('money-menu')">
+                <img src="icon-gold.png" alt="Gold" class="icon">
+                <span>來財來財</span>
+            </div>
+            <div class="grid-item bg-vision" onclick="navigateTo('vision-board')">
+                <img src="icon-star.png" alt="Star" class="icon">
+                <span>願景版</span>
+            </div>
+        </div>
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <div class="ticker__item" id="daily-quote">Loading Quote...</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="xin-menu" class="page hidden">
+        <div class="grid-container">
+            <div class="grid-item" onclick="openSubApp('xin', 'daily')">每日記錄</div>
+            <div class="grid-item" onclick="openSubApp('xin', 'forex')">外匯記錄</div>
+            <div class="grid-item" onclick="openSubApp('xin', 'reading')">閱讀筆記</div>
+            <div class="grid-item" onclick="openSubApp('xin', 'akashic')">阿卡西</div>
+        </div>
+    </div>
+
+    <div id="new-menu" class="page hidden">
+        <div class="grid-container">
+            <div class="grid-item" onclick="openSubApp('new', 'daily')">每日記錄</div>
+            <div class="grid-item" onclick="openSubApp('new', 'forex')">外匯記錄</div>
+            <div class="grid-item" onclick="openSubApp('new', 'reading')">閱讀筆記</div>
+            <div class="grid-item" onclick="openSubApp('new', 'breaking')">Breaking記錄</div>
+        </div>
+    </div>
+
+    <div id="app-content" class="page hidden">
+        <div id="dynamic-content"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

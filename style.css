@@ -1,0 +1,138 @@
+:root {
+    --bg-marble: url('bg-marble.jpg'); /* 需準備圖片，或用顏色 #f0f0f5 代替 */
+    --border-black: #000000;
+    --accent-orange: #FF5722; /* 亮橘色 */
+    --shadow-hard: 4px 4px 0px #000000;
+    --font-main: 'Noto Sans TC', sans-serif;
+    
+    /* 莫蘭迪色 */
+    --morandi-pink: #dcb5ac;
+    --morandi-blue: #a4b0be;
+    --rice-white: #fdfbf7;
+    
+    /* 情緒顏色 */
+    --mood-green: #d4edda;
+    --mood-red: #f8d7da;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+    background-image: var(--bg-marble);
+    background-color: #f0f0f5; 
+    background-size: cover;
+    color: var(--border-black);
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+/* 硬陰影通用類別 */
+.hard-shadow {
+    border: 3px solid var(--border-black);
+    box-shadow: var(--shadow-hard);
+    background: white;
+}
+
+/* 按鈕樣式 */
+button {
+    background-color: var(--accent-orange);
+    color: white;
+    font-weight: 900;
+    border: 2px solid var(--border-black);
+    box-shadow: 2px 2px 0px #000;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.1s;
+}
+
+button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px #000;
+}
+
+/* 頁面切換控制 */
+.page { display: none; padding: 20px; height: 100%; box-sizing: border-box;}
+.page.active { display: block; }
+.hidden { display: none !important; }
+
+/* 四宮格佈局 */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    height: 85vh;
+}
+
+.grid-item {
+    border: 4px solid var(--border-black);
+    box-shadow: var(--shadow-hard);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+    cursor: pointer;
+    background: white;
+    transition: all 0.2s;
+}
+
+.grid-item:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px #000; }
+.grid-item img { width: 60px; height: 60px; margin-bottom: 10px; }
+
+/* 配色 */
+.morandi-pink { background-color: var(--morandi-pink); }
+.morandi-blue { background-color: var(--morandi-blue); }
+.bg-gold { background-color: #ffeaa7; }
+.bg-vision { background-color: #dfe6e9; }
+
+/* 表單與內容樣式 */
+.split-view { display: flex; gap: 20px; height: 100%; }
+.panel { flex: 1; padding: 20px; border: 3px solid #000; background: white; overflow-y: auto; }
+
+/* 輸入框樣式 */
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 2px solid #000;
+    background: #fff;
+    font-family: var(--font-main);
+    box-sizing: border-box;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    background: #fff8e1;
+    border-color: var(--accent-orange);
+}
+
+/* 每日記錄框 */
+.daily-box {
+    background-color: var(--rice-white);
+    border: 2px solid #000;
+    padding: 20px;
+    position: relative;
+    margin-top: 20px;
+}
+
+.add-btn-corner {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* 跑馬燈 */
+.ticker-wrap {
+    position: fixed; bottom: 0; width: 100%; background: #000; color: var(--accent-orange);
+    height: 40px; line-height: 40px; overflow: hidden;
+}
+.ticker { display: inline-block; white-space: nowrap; animation: ticker 20s infinite linear; }
+@keyframes ticker { 0% { transform: translate3d(100%, 0, 0); } 100% { transform: translate3d(-100%, 0, 0); } }
