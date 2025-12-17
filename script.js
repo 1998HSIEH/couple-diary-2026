@@ -2,7 +2,7 @@
 const firebaseConfig = {
   apiKey: "AIzaSyA2ryGi_LImOxgXWssY-sm4KqiZWmvSr6M",
   authDomain: "couple-s-log.firebaseapp.com",
-  databaseURL: "https://couple-s-log-default-rtdb.firebaseio.com", 
+  databaseURL: "https://couple-s-log-default-rtdb.firebaseio.com",
   projectId: "couple-s-log",
   storageBucket: "couple-s-log.firebasestorage.app",
   messagingSenderId: "327080956450",
