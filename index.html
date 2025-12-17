@@ -4,40 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026 情侶進步日記</title>
-    <link rel="stylesheet" href="style.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* 補強一些基礎樣式確保載入前不破圖 */
+        body { background-color: #f0f0f5; margin: 0; }
+        .loader { padding: 20px; text-align: center; font-weight: 900; color: #FF5722; }
+    </style>
 </head>
 <body>
 
     <nav id="navbar" class="hidden">
-        <button onclick="goHome()">🏠 回首頁</button>
-        <span id="page-title"></span>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: #000; color: #fff;">
+            <button onclick="goHome()" style="background: #333; border: 1px solid #fff; font-size: 0.9rem;">🏠 首頁</button>
+            <span id="page-title" style="font-weight: 900; color: #FF5722; cursor: pointer;">2026 PROGRESS</span>
+            <div style="width: 60px;"></div> </div>
     </nav>
 
     <div id="home-page" class="page active">
         <div class="grid-container">
             <div class="grid-item morandi-pink" onclick="navigateTo('xin-menu')">
-                <img src="icon-girl.png" alt="Girl" class="icon">
+                <img src="icon-girl.png" alt="欣" onerror="this.style.display='none'">
                 <span>欣欣日記</span>
             </div>
             <div class="grid-item morandi-blue" onclick="navigateTo('new-menu')">
-                <img src="icon-boy.png" alt="Boy" class="icon">
+                <img src="icon-boy.png" alt="新" onerror="this.style.display='none'">
                 <span>新新日記</span>
             </div>
             <div class="grid-item bg-gold" onclick="navigateTo('money-menu')">
-                <img src="icon-gold.png" alt="Gold" class="icon">
+                <img src="icon-gold.png" alt="財" onerror="this.style.display='none'">
                 <span>來財來財</span>
             </div>
             <div class="grid-item bg-vision" onclick="navigateTo('vision-board')">
-                <img src="icon-star.png" alt="Star" class="icon">
+                <img src="icon-star.png" alt="願" onerror="this.style.display='none'">
                 <span>願景版</span>
             </div>
         </div>
+        
         <div class="ticker-wrap">
             <div class="ticker">
-                <div class="ticker__item" id="daily-quote">Loading Quote...</div>
+                <div class="ticker__item" id="daily-quote">正在加載勵志語錄...</div>
             </div>
         </div>
     </div>
@@ -56,7 +68,7 @@
             <div class="grid-item" onclick="openSubApp('new', 'daily')">每日記錄</div>
             <div class="grid-item" onclick="openSubApp('new', 'forex')">外匯記錄</div>
             <div class="grid-item" onclick="openSubApp('new', 'reading')">閱讀筆記</div>
-            <div class="grid-item" onclick="openSubApp('new', 'breaking')">Breaking記錄</div>
+            <div class="grid-item" onclick="openSubApp('new', 'breaking')">Breaking紀錄</div>
         </div>
     </div>
 
